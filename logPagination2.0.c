@@ -45,7 +45,7 @@ int main()
 			disconnection();
 		}
 		else
-			printf("Error");
+			printf("<h1><>L'identifiant incorrect ou mot de passe incorrect!!</h1>");
 	}
 	else if(strstr(getName(),"nom="))
 	{		
@@ -73,7 +73,7 @@ int main()
 }
 int getLine()
 {
-	FILE *file=popen("cat /usr/lib/cgi-bin/session.txt | wc -l", "r");
+	FILE *file=popen("cat ./session.txt | wc -l", "r");
 	char line[100];
 	int lineReturn;
 	fgets(line,100,file);
@@ -101,7 +101,7 @@ void archiveName()
 	FILE *file=NULL;
 	file=fopen("/var/log/auth.log","r");
 	FILE *receptacle=NULL;
-	receptacle=fopen("/usr/lib/cgi-bin/session.txt","w");
+	receptacle=fopen("./session.txt","w");
 	char container[250];
 	char month[20];
 	char day[5];
@@ -131,7 +131,7 @@ void archiveName()
 }
 void listDisplayNameSend()
 {
-	FILE *file=fopen("/usr/lib/cgi-bin/session.txt","r");
+	FILE *file=fopen("./session.txt","r");
 	char container[250]; 
 	char month[20]; 
 	char day[5];
@@ -170,7 +170,7 @@ void listDisplayNameSend()
 
 void listDisplayNumberSend()
 {
-	FILE *file=fopen("/usr/lib/cgi-bin/session.txt","r");
+	FILE *file=fopen("./session.txt","r");
 	char container[250]; 
 	char month[20]; 
 	char day[5];
@@ -186,7 +186,8 @@ void listDisplayNumberSend()
 	lineBegin=line*10-10;
 	printf("<div style=\"display:flex;flex-direction:column\">");
 	pagingNumberSend();
-	printf("<center><table border=\"1\">");
+	printf("<center>");
+	printf("<table border=\"1\">");
 	printf("<tr><td width=\"150px\"><font color=\"darkblue\"><center>Heure</center></font></td><td width=\"150px\"><font color=\"darkblue\"><center>Jour</center></font></td><td width=\"150px\"><font color=\"darkblue\"><center>Mois</center></font></td>");
 	printf("<td width=100px><center><font color=\"darkblue\">Session</font></center></td><td width=\"70px\"><font color=\"darkblue\"><center>User</center></font></td></tr>");
 	
