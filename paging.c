@@ -9,6 +9,7 @@ char* translatedate(char* month, char* day, int years);
 void listDisplayNumberSend();
 void pagingNumberSend();
 void getStyles();
+void disconnection();
 
 int main()
 {
@@ -47,6 +48,7 @@ void listDisplayNumberSend()
 	printf("<div id=\"div0\">");
 	printf("<div id=\"div1\">");
 	pagingNumberSend();
+	disconnection();
 	printf("<center>");
 	printf("<table id=\"tab\"border=\"2\">");
 	printf("<tr>");
@@ -178,4 +180,12 @@ void getStyles()
 	while(fgets(container,250,file))
 		printf("%s",container);
 	fclose(file);
+}
+void disconnection()
+{
+	printf("<div style=\"position:absolute;right:10px;top:10px;\">");
+	printf("<form action=\"http://localhost/cgi-bin/login.cgi\" method=\"get\">");
+    printf("<button type=\"submit\" name=\"disconnection\" style=\"width:120px; height:40px;\">DÉCONNEXION</button>");
+    printf("</form>");
+    printf("</div>");
 }
