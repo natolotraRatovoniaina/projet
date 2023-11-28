@@ -9,6 +9,7 @@ char* translatedate(char* month, char* day, int years);
 void listDisplayNumberSend();
 void pagingNumberSend();
 void getStyles();
+void search();
 void disconnection();
 
 int main()
@@ -49,6 +50,7 @@ void listDisplayNumberSend()
 	printf("<div id=\"div1\">");
 	pagingNumberSend();
 	disconnection();
+	search();
 	printf("<center>");
 	printf("<table id=\"tab\"border=\"2\">");
 	printf("<tr>");
@@ -181,6 +183,7 @@ void getStyles()
 		printf("%s",container);
 	fclose(file);
 }
+
 void disconnection()
 {
 	printf("<div style=\"position:absolute;right:10px;top:10px;\">");
@@ -188,4 +191,11 @@ void disconnection()
     printf("<button type=\"submit\" name=\"disconnection\" style=\"width:120px; height:40px;\">DÉCONNEXION</button>");
     printf("</form>");
     printf("</div>");
+}
+
+void search()
+{
+	printf("<div style=\"position:absolute;left:20px;top:10px;\">");
+	printf("<a href=\"http://localhost/cgi-bin/welcome.cgi\"><img src=\"http://www.natolotra.mg/Search.png\" width=\"40px\" height=\"40px\"></a>");
+	printf("</div>");
 }
