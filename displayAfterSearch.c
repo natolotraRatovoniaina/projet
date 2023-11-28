@@ -10,6 +10,7 @@ void archiveName();
 void listDisplayNameSend();
 void pagingNameSend();
 void getStyles();
+void search();
 void disconnection();
 
 int main()
@@ -59,6 +60,7 @@ void archiveName()
 	fclose(file);
 	fclose(receptacle);
 }
+
 void listDisplayNameSend()
 {
 	FILE *file=fopen("./session.txt","r");
@@ -82,6 +84,7 @@ void listDisplayNameSend()
 	printf("<div id=\"div1\">");
 	pagingNameSend();
 	disconnection();
+	search();
 	printf("<center>");
 	printf("<table id=\"tab\"border=\"2\">");
 	printf("<tr>");
@@ -219,4 +222,11 @@ void disconnection()
     printf("<button type=\"submit\" name=\"disconnection\" style=\"width:120px; height:40px;\">DÉCONNEXION</button>");
     printf("</form>");
     printf("</div>");
+}
+
+void search()
+{
+	printf("<div style=\"position:absolute;left:20px;top:10px;\">");
+	printf("<a href=\"http://localhost/cgi-bin/welcome.cgi\"><img src=\"http://www.natolotra.mg/Search.png\" width=\"40px\" height=\"40px\"></a>");
+	printf("</div>");
 }
